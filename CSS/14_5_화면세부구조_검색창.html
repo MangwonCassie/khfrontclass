@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,form{
+            box-sizing: border-box;
+        }
+        /*임의영역 통합할 때는 그냥 relative만 가져감*/
+        #header_2{
+            width: 600px;
+            height: 150px;
+            position: relative; /*검색창을 가운데로 옮기기 위한 기준잡기*/
+        }
+
+        <!--absolute를 원하는 위치로 부모와 상관없이-->
+        #search_form{
+            width: 80%;
+            height: 20%;
+            margin: auto;
+            position: absolute;
+            right: 0px;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+        }
+
+        /*이거 div만 선택하는거잖아*/
+        /*검색창이랑 검색버튼 둘다*/
+        /*자손은 100%해도됨*/
+        #search_form>div{
+            height: 100%;
+            float: left;
+        }
+        #search_text{
+            width: 80%;
+        }
+        #search_btn{
+            width: 20%;
+        }
+        #search_form input{
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header_2">
+        <form action="search.do" id="search_form">
+            <div id="search_text">
+                <input type="search" name="keyword">
+            </div>
+            <div id="search_btn">
+                <input type="button" value="검색">
+                
+            </div>
+        </form>
+    </div>
+</body>
+</html>

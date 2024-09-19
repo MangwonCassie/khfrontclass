@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자 관련 스타일</title>
+    <style>
+        #color-1{
+            color: darkkhaki;
+        }
+        #color-2{
+            color:#158fe7;
+        }
+        #color-3{
+            color:rgb(44, 155, 174);
+        }
+        #color-4{
+            color: rgba(44, 155, 174, 0.4);
+        }
+        #color-5{
+            color: hsl(256, 68%, 38%);
+        }
+        #color-6{
+            color: hsla(7, 44%, 50%, 0.618);
+        }
+
+        #deco1{
+            text-decoration: underline;
+        }
+        #deco2{
+            text-decoration: line-through;
+        }
+        #deco3{
+            text-decoration: overline;
+        }
+        #deco4>a{
+            text-decoration: none;
+            color: coral;
+        }
+
+        .shadow{
+            font-size: 100px;
+            font-weight: 900;
+            line-height: 150px;
+        }
+
+        #shadow1{
+            color:orange;
+            text-shadow: 5px 5px orangered; /*가로 세로 색상*/
+        }
+
+        #shadow2{
+            color:white;
+            text-shadow: 5px 5px 10px rgb(70, 36, 24);
+            /*가로 세로 번짐정도 색상*/
+        }
+
+        #shadow3{
+            color: white;
+            text-shadow: 1px 1px 25px hotpink;
+        }
+
+        #bg:active{
+            background-color: black;
+        }
+        
+        #shadow4{
+            text-shadow: 
+            0px 0px 4px rgb(184,179,179),
+            0px -5px 4px yellow,
+            2px -10px 6px orange,
+            2px -20px 20px red;
+        }
+
+        #ws1{
+            background-color: antiquewhite;
+            white-space: normal;
+            /*기본값 : 공백을 여러개 넣어도 공백1개만 표시,글이 길어지면 자동 줄바꿈됨*/
+        }
+        #ws2{
+            background-color: burlywood;
+            white-space: nowrap;
+            /*공백을 여러개 넣어도 공백1개만 표시됨,글이 길어져도 줄바꿈을 하지 않고 한줄표현*/
+        }
+        #ws3{
+            background-color: cornsilk;
+            white-space: pre;
+            /*공백 그대로 표시,줄바꿈도 표시 형식유지함 <pre>태그와 같음*/
+        }
+        #ws4{
+            white-space: pre-line;
+            /*공백 1개만 표시,줄바꿈 없어도 자동 줄바꿈되며 줄바꿈이 있으면 표현해줌*/
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>글자 관련 스타일</h1>  
+    
+    <h3>글자 색상 : color</h3>
+
+    <!-- ul>li#color-$*6 -->
+    <ul>
+        <li id="color-1">색상명</li>
+        <li id="color-2">16진수(코드표)</li>
+        <li id="color-3">RGB값</li>
+        <li id="color-4">RGBA값(A:투명도)</li>
+        <li id="color-5">HSL값(색,채도,명도)</li>
+        <li id="color-6">HSLA값(A:투명도)</li>
+    </ul>
+
+    <h3>text-decoration : 글자 밑줄,취소선</h3>
+    <!-- ul>li#deco$*4 -->
+    <ul>
+        <li id="deco1">밑줄 표현</li>
+        <li id="deco2">취소선</li>
+        <li id="deco3">윗줄</li>
+        <li id="deco4"><a href="">하이퍼링크 표현</a></li>
+    </ul>
+
+
+    <h3>글자의 그림자 text-shadow</h3>
+    <p>
+        선택자{
+            text-shadow:값;
+        }
+    </p>
+
+    <div id="bg">
+        <!-- span#shadow$.shadow{HTML5}*4 -->
+        <span id="shadow1" class="shadow">HTML5</span><br>
+        <span id="shadow2" class="shadow">HTML5</span><br>
+        <span id="shadow3" class="shadow">HTML5</span><br>
+        <span id="shadow4" class="shadow">HTML5</span><br>
+    </div>
+
+    <h3>글자간의 여백 white-space</h3>
+    <!-- p#ws$*4     -->
+    <p id="ws1">
+        물방아 밝은 청춘 끝까지 살았으며, 튼튼하며, 
+        부패뿐이다. 지혜는 설레는 못할 속에 봄바람을 그들의 
+        온갖 시들어 것이다. 피에 새가 스며들어 끓는 천고에 피어나기 
+        힘차게 낙원을 하였으며,         힘있다. 청춘의 바이며, 가는 주는 교향악이다.
+         눈에 어디 있는 사랑의 군영과 찾아다녀도, 많이 희망의 꽃이 있으랴? 
+         인도하겠다는 원대하고,          끓는 있는 쓸쓸하랴? 못할 장식하는 전인 아름답고 
+         끓는 풍부하게 꽃이 쓸쓸한 황금시대다. 생명을 아름답고 동산에는 것이다. 
+         유소년에게서 보이는 트고, 소리다.이것은 불어 때문이다. 넣는 따뜻한 대중을
+          가슴에 때문이다.
+    </p>
+    <p id="ws2">
+        물방아 밝은 청춘 끝까지 살았으며, 
+        튼튼하며, 부패뿐이다.                   지혜는 설레는 못할 속
+        에 봄바람을 그들의 온갖 시들어 것이다. 피에 
+        새가 스며들어 끓는 천고에         피어나기 힘차게 낙원을 
+        하였으며, 힘있다. 청춘의 바이며, 가는 주는 교향악이다.
+         눈에 어디 있는         사랑의 군영과 찾아다녀도, 많이 희망의 꽃이 
+         있으랴? 인도하겠다는 원대하고, 끓는 있는 쓸쓸하랴? 못할 장식하는 
+         전인 아름답고 끓는 풍부         하게 꽃이 쓸쓸한 황금시대다. 생명을 아름답고 
+         동산에는 것이다. 유소년에게서 보이는 트고, 소리다.이것은 불어 때문이다. 
+         넣는 따뜻한 대중을 가슴에 때문이다.
+    </p>
+    <p id="ws3">
+        물방아 밝은 청춘 끝까지 살았으며,
+         튼튼하며, 부패뿐이다. 지혜는 설레는 못할 속에 봄바람을
+          그들의 온갖 시들어 것이다. 피에 새가 스며들어 끓는 천고에 
+          피어나기 힘차게 낙원을 하였으며, 힘있다. 청춘의 바이며, 가는 
+          주는 교향악이다. 눈에 어디             있는 사랑의 군영과 찾아다녀도, 많이
+           희망의 꽃이 있으랴? 인도하겠다는 원대하고, 끓는 있는 쓸쓸하랴?
+            못할 장식하는 전인 아름답고 끓는 풍부하게 꽃이 쓸쓸한 황금시대다.
+             생명을 아름답고 동산에는 것이다. 유소년에게서 보이는 트고, 소리다.
+             이것은 불어 때문이다. 넣는 따뜻한 대중을 가슴에 때문이다.
+    </p>
+    <p id="ws4">
+        물방아 밝은 청춘 끝까지 살았으며,           튼튼하며
+        , 부패뿐이다. 지혜는 설레는 못할 속에 봄바람을 그들의 
+        온갖 시들어 것이다. 피에 새가 스며들어 끓는 천고에 피어나기
+         힘차게 낙원을 하였으며, 힘있다.           청춘의 바이며, 가는 주는 교향악이다.
+          눈에 어디 있는 사         랑의 군영과 찾아다녀도, 많이 희망의 꽃이 있으랴? 
+          인도하겠다는 원대하고, 끓는 있는 쓸쓸하랴? 못할 장식하는 전인 아름답고
+           끓는 풍부하게 꽃이 쓸쓸한          황금시대다. 생명을 아름답고 동산에는 것이다.
+            유소년에게서 보이는 트고, 소리다.이것은 불어 때문이다. 넣는 따뜻한 대중을 
+            가슴에 때문이다.
+    </p>
+
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경 관련 스타일</title>
+    <style>
+        body{
+            background-color: skyblue;
+        }
+        #div-bg{
+            background-color: white;
+            border: 30px solid black;
+            padding: 20px;
+            /*div의 content의 가로 길이는 부모 요소(body)의 50%로로 지정하겠다.*/
+            width: 50%; 
+            /*가로길이를 border까지 포함시키겠다.*/
+            box-sizing: border-box;
+        }   
+
+        .div-test{
+            margin: 30px;
+            border: 10px dashed black;
+            padding: 20px;
+            background-color: rgb(249, 249, 147);
+        }
+
+        #div1{
+            background-clip: border-box;
+        }
+
+        #div2{
+            background-clip: padding-box;
+        }
+        #div3{
+            background-clip: content-box;
+        }
+
+
+        #bg-img{
+            border:1px solid black;
+            width: 70%;
+            height: 800px;
+
+            background-image: url("resources/img/그을린고양이.jpg");
+            background-repeat: no-repeat; /*사진 y축으로만 연이어져서 나옴*/
+            background-size: auto; /*가로 세로 상관없이 둘중 하나가 가득찰때까지 크기를 맞춘다*/
+            background-position: 50% 50%;/*center center*/
+            background-attachment: scroll;
+        }   
+
+    </style>
+</head>
+<body>
+    <h1>배경 관련 스타일</h1>
+
+    <h3>background-color : 배경색 지정</h3>
+    <div id="div-bg">
+        길을 인생의 가슴이 바이며, 없으면, 때까지 동산에는 피고 청춘의 때문이다. 얼마나 이상은 피어나는 동산에는 하는 봄바람이다. 어디 그들을 스며들어 끓는 심장은 되는 같은 그들은 이것은 황금시대다. 있으며, 우리 것은 끓는 봄바람이다. 이 두손을 방황하였으며, 힘차게 아름다우냐? 소담스러운 발휘하기 이 간에 가장 피에 것이다.
+    </div>
+
+    <br>
+    <h3>background-clip : 배경을 적용시키고자하는 범위를 지정할때 사용</h3>
+    <pre>
+        선택자{
+            background-clip : border-box(기본값)/padding-box/content-box;
+        }
+    </pre>
+
+    <div class="div-test" id="div1">
+        길을 인생의 가슴이 바이며, 없으면, 때까지 동산에는 피고 청춘의 때문이다. 얼마나 이상은 피어나는 동산에는 하는 봄바람이다. 어디 그들을 스며들어 끓는 심장은 되는 같은 그들은 이것은 황금시대다. 있으며, 우리 것은 끓는 봄바람이다. 이 두손을 방황하였으며, 힘차게 아름다우냐? 소담스러운 발휘하기 이 간에 가장 피에 것이다.
+    </div>
+    <div class="div-test" id="div2">
+        길을 인생의 가슴이 바이며, 없으면, 때까지 동산에는 피고 청춘의 때문이다. 얼마나 이상은 피어나는 동산에는 하는 봄바람이다. 어디 그들을 스며들어 끓는 심장은 되는 같은 그들은 이것은 황금시대다. 있으며, 우리 것은 끓는 봄바람이다. 이 두손을 방황하였으며, 힘차게 아름다우냐? 소담스러운 발휘하기 이 간에 가장 피에 것이다.
+    </div>
+    <div class="div-test" id="div3">
+        길을 인생의 가슴이 바이며, 없으면, 때까지 동산에는 피고 청춘의 때문이다. 얼마나 이상은 피어나는 동산에는 하는 봄바람이다. 어디 그들을 스며들어 끓는 심장은 되는 같은 그들은 이것은 황금시대다. 있으며, 우리 것은 끓는 봄바람이다. 이 두손을 방황하였으며, 힘차게 아름다우냐? 소담스러운 발휘하기 이 간에 가장 피에 것이다.
+    </div>
+
+    <hr>
+
+    <h3>배경 이미지 테스트</h3>
+    <pre>
+        선택자 {
+            background-image : url(이미지경로);
+            background-repeat: repeat/repeat-x/repeat-y/no-repeat;
+            background-size : auto/contain/cover/px/%;
+            background-attachment:scroll/fixed;
+        }
+    </pre>
+
+    <div id="bg-img"></div>
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

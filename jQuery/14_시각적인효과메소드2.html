@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시각적인 효과메소드2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+    <h1>시각적인 효과메소드 2</h1>
+
+    <!--style 일 때 ;걸로 나열-->
+    <div style="width: 100px; height: 100px; background-color: bisque; opacity: 0.5;"></div>
+
+    <h3>함수이름임 fadeIn()과 fadeOut(), fadeToggle()</h3>
+
+    <p>
+        선택한 요소가 점점 투명해지며 사라지고 점점 선명해지며 보여지게 하는 메소드 
+    </p>
+    
+
+    <button id="fadeOut">숨기기</button>
+    <button id="fadeIn">보여주기</button>
+    <button id="fadeToggle">토글</button>
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF8FM8pUOP04Tl12dse27qmV_i8dLYXlDshQ&usqp=CAU" alt="" id="img1">
+
+    <script>
+        $(function(){
+            $("#fadeOut").click(function(){
+                $("#img1").fadeOut(1000);
+                //1초잖아 1000
+
+            })
+
+            $("#fadeIn").click(function(){
+                $("#img1").fadeIn(1000);
+
+            })
+
+            $("#fadeToggle").click(function(){
+                $("#img1").fadeToggle(2000);
+
+            })
+
+        })
+    </script>
+
+
+</body>
+</html>

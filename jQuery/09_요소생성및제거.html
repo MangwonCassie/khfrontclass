@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 생성 및 제거</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        .added{
+            color: burlywood;
+        }
+
+        .item{
+            background-color: coral;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            margin: 5px;
+        }
+        .item span{
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .lime{
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>요소 생성 및 제거</h1>
+
+    <h3>동적으로 요소 생성</h3>
+
+    <button id="btn">요소 생성</button>
+
+    <div id="area1"></div>
+
+    
+    <script>
+
+        $(function(){
+            
+            $("#btn").click(function(){
+                //p태그를 동적으로 만들어 보기
+                //1.문자열로 만드는 방법
+                var el1 = "<p>동적으로 p태그 만들기 텍스트로 </p>";
+
+                //2."DOM메소드로 만드는 방법(createElement,createTextNode)
+                //DOM(Documenet Object Model) 메소드:
+                //HTML 문서의 요소들을 조작하고 변경하는 JavaScript 메소드들을 말합니다.
+                //자바스크립트 방식
+	            //el2 따로 text따로 만들고 appendChild로 붙여주면 p태그가 텍스트 감쌈
+		
+                var el2 = document.createElement("p"); //<p></p> 딱 p만
+                var text = document.createTextNode("동적으로 p태그 만들기 DOM메소드로");
+                el2.appendChild(text); 
+
+
+                //3.jQuery를 이용하여 만드는 방법
+                var el3 = $("<p></p>").text("동적으로 p태그 만들기 jQuery로");
+
+                console.log(el1);
+                console.log(el2);
+                console.log(el3);
+
+                $("#area1").append(el1,el2,el3);
+
+            });
+        });
+    </script>
+
+    <hr>
+
+    <h3>삽입 관련 메소드 part 1</h3>
+    <p>
+        선택된 요소를 기준으로 새로이 생성된 요소를 추가하는 메소드 <br><br>
+
+        $(A).append(B) : A요소 내에 "뒷"부분에 B를 추가 (자손/하위) <br>
+        $(A).prepend(B) : A요소 내에 "앞"부분에 B를 추가 (자손/하위) <br>
+        $(A).before(B)  : A요소 "앞"부분에 B를 추가(동위) <br>
+        $(A).after(B) : A요소 "뒷"부분에 B를 추가(동위) <br>
+    </p>
+
+    <h3>삽입 관련 메소드 part 2</h3>
+    <p>
+        $(B).appendTo(A) : B를 A요소 내에 "뒷"부분에 추가(자손/하위) <br>
+        $(B).prependTo(A) : B를 A요소 내에 "앞"부분에 추가 (자손/하위) <br>
+        $(B).insertBefore(A) : B를 A요소 "앞"에 추가 (동위) <br>
+        $(B).insertAfter(A) : B를 A요소 "뒤"에 추가(동위) <br>
+    </p>
+
+    <!--(h1#test$>span{A})*4-->
+    <h1 id="test1">
+        <span>A</span>
+    </h1>
+    <h1 id="test2">
+        <span>A</span>
+    </h1>
+    <h1 id="test3">
+        <span>A</span>
+    </h1>
+    <h1 id="test4">
+        <span>A</span>
+    </h1>
+
+    <script>
+
+        $(function(){
+            /*
+           // part 1
+            $("#test1").append("<span class='added'>B</span>");
+            $("#test2").prepend("<span class='added'>B</span>");
+            $("#test3").before("<span class='added'>B</span>");
+            $("#test4").after("<span class='added'>B</span>");
+            */
+            
+            //part 2
+    
+            $("<span class='added'>B</span>").appendTo("#test1");;//toappend 아니고 appendTo
+	        $("<span class='added'>B</span>").prependTo("#test2");//앞부분에 추가
+            $("<span class='added'>B</span>").insertBefore("#test3");//B를 #test3앞에 붙이는거임
+            $("<span class='added'>B</span>").insertAfter("#test4");
+        });
+    </script>
+
+    <hr>
+
+    <h3>요소객체 복제 메소드</h3>
+    <p>
+        var 변수 = $("선택자").clone(true/false) : 선택된 요소를 복제하여 
+                                                    반환해주는 메소드 <br>
+        -> true/false : 해당 선택된 요소에 걸려있는 이벤트까지도 복사를 
+                                                            할것인지 지정
+            (기본값 false, 생략가능)
+    </p>
+
+    <button id="clone">복제</button>
+
+    <div id="clone-test">
+        <div id="item1" class="item">
+            <span>안녕</span>
+        </div> 
+    </div>
+
+    <!--복제한 결과를 넣을 공간-->
+    <div id="clone-result">
+
+    </div>
+    <script>
+    
+    $(function(){
+            //복제할 요소에 hover 이벤트 추가하기
+            // jQuery에서는 "hover() 메소드를 사용"하여 hover 이벤트를 추가할 수 있습니다.
+            //$(".item").hover() 함수는 첫번째 함수 인자로 mouseenter 이벤트를, 
+            //두번째 함수 인자로 mouseleave 이벤트를 받습니다.
+
+            $(".item").hover(function(){ //mouseenter
+                //lime파란색
+                $(this).addClass("lime");
+            },function(){ //mouseout
+                $(this).removeClass("lime");
+            });
+        
+            //복제 버튼 클릭시 해당 요소를 복사하여 다른 div에 붙여넣기
+            $("#clone").click(function(){
+                var copy = $("#item1").clone(true); //이벤트도 복사
+                $("#clone-result").append(copy);
+            });
+        });
+
+    </script>
+
+    <hr>
+
+    <h3>요소 객체 제거 및 잘라내기 메소드</h3>
+    <p>
+        $("선택자").empty() : 선택된 요소의 "모든 하위 요소"들을 제거시켜주는 메소드 <br>
+
+        var 변수 = $("선택자").remove()/.detach() : 해당 선택된 요소를 제거 후 
+                    해당 제거된 요소를 반환(잘라내기) <br>
+            -.remove() : 잘라내기 시 잘라낸 요소의 "이벤트를 가져오지 않음" <br>
+            -.detach() : 잘라내기 시 잘라낸 요소의 "이벤트까지 가지고 옴" <br>
+    </p>
+    <br>
+
+    <button id="empty">empty</button> 
+    <button id="remove">remove</button> 
+    <button id="detach">detach</button> 
+    <br> <br>
+    <div id="remove-test" style="border:3px solid red; 
+                                        width:100px; height:100px;">
+        <!--제거할 요소-->
+        <div id="item2" class="item">
+            <span>반가워</span>
+        </div>
+    </div> 
+    <br>
+    <!--붙여넣을 공간-->
+    <div id="remove-result" style="border:3px dotted blue; 
+                                         width:110px; height:110px;">
+
+    </div>
+
+
+    <script>
+        $(function(){
+            $("#empty").click(function(){
+                $("#remove-test").empty(); //선택요소의 "하위" 요소 지우기
+            });
+
+            $("#remove").click(function(){ 
+                //remove는 이벤트를 가지고 오지 않는다.
+                var el = $("#item2").remove();//잘라내기한 요소를 변수에 담기
+                $("#remove-result").append(el);//담은 요소 추가하기
+            });
+
+            $("#detach").click(function(){
+                var el = $("#item2").detach(); //detach는 "이벤트까지 가지고 간다"
+                $("#remove-result").append(el); //반가워 잘라서 파란색 점 네모가 remove-result에 붙여넣는다고! 
+            });
+
+        });
+
+    </script>
+
+    <!--
+        div요소안에 버튼 두개 만들고 하나는 복제버튼
+        하나는 삭제 버튼으로 만들어
+        복제버튼 클릭시 현재 버튼의 부모 요소인 div를 복제하여 
+        또다른 div영역에 넣기 삭제버튼 클릭시 현재 버튼의 부모요소 div를 삭제하기
+    -->
+    <div id="test" class="item">
+        <button id="copy">복제</button>
+        <button id="delete">삭제</button>
+    </div>
+
+    <!--붙여넣을 공간 test-result가 줄같이 있음-->
+    <div class="test-result">
+
+    
+    </div>
+
+    <script>
+        $(function(){
+            $("#copy").click(function(){
+                //$(this).parent().clone(true); : 해당요소 부모요소 복사(이벤트까지)
+                
+                $(".test-result").append($(this).parent().clone(true));
+                //parent 1개 안하면 버튼이 복사된다. 
+            });
+
+            $("#delete").click(function(){
+                $(this).parent().remove();
+                //버튼의 부모 remove()
+            })
+
+        });
+    </script>
+    
+</body>
+</html>

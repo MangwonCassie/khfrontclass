@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시험230328_김여울</title>
+    <style>
+        #content{
+            height:200px;
+            width:200px;
+        }
+        thead, tfoot{
+            text-align: center;
+           
+        }
+        a{
+            text-decoration:none;
+            color:black;
+        }
+
+        th, tfoot{
+            background-color: lightcoral;
+            color: white;
+        }
+
+        tbody{
+            background-color:floralwhite;
+        }
+
+        #submitdiv{
+            padding-top: 10px;
+            padding-left: 100px;
+        }
+
+        #titlediv{
+            padding-bottom:5px;
+        }
+
+        #contentdiv{
+            padding-bottom:5px;
+        }
+
+        thead{
+           height:50px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <form action="insert.no" method="post">
+        <fieldset>
+            <legend>공지사항 작성하기</legend>
+            <div id="titlediv">
+            <label for="title"><b>제목</b></label>
+            <input type="text" id="title" name="title" placeholder="제목을 입력하시오." required><br>
+            </div>
+
+            <div id="contentdiv">
+            <label for="content"><b>내용</b></label>
+            <input type="text" name="content" id="content" placeholder="내용을 입력하시오." required ><br>
+            </div>
+
+            <label for="uploadFile"><b>첨부파일</b></label>
+            <input type="file" id="uploadFile" name="uploadFile"><br>
+
+            <div id="submitdiv">
+                <input type="submit" id="submit" value="작성하기"></input>
+            </div>
+       
+        </fieldset>
+    </form>
+
+
+    <br>
+    <hr>
+    <br>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th colspan="2">제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>9</td>
+                <td >공지사항 제목 9</td>
+                <td><button><a href="">바로가기</a></button></td>
+                <td>user01</td>
+                <td>2021-03-29</td>
+                <td>34</td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td >공지사항 제목 6</td>
+                <td><button><a href="">바로가기</a></button></td>
+                <td>answ445</td>
+                <td>2021-03-21</td>
+                <td>67</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td >공지사항 제목 3</td>
+                <td><button><a href="">바로가기</a></button></td>
+                <td>testg12</td>
+                <td>2021-03-01</td>
+                <td>98</td>
+            </tr>
+
+            
+            <tr>
+                <td>2</td>
+                <td >공지사항 제목 2</td>
+                <td><button><a href="">바로가기</a></button></td>
+                <td>palwe3</td>
+                <td>2021-01-02</td>
+                <td>85</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td >공지사항 제목 1</td>
+                <td><button><a href="">바로가기</a></button></td>
+                <td>xml23</td>
+                <td>2020-12-24</td>
+                <td>124</td>
+            </tr>
+
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="4"><b>전체공지사항갯수</b></td>
+                <td colspan="2"><b>5개</b></td>
+            </tr>
+        </tfoot>
+
+    </table>
+
+
+    
+</body>
+</html>

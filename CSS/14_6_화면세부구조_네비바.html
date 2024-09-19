@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        div{
+            /* border: 1px solid red; */
+            box-sizing: border-box;
+        }
+        #menubar{
+            /*임시 영역 설정*/
+            width: 1000px;
+            height: 40px;
+        }
+        
+        #navi{
+             border: 1px solid purple; 
+             list-style-type: none;
+             margin: 0px;
+             padding: 0px; /*padding = 0*/
+             height: 100%;     /*세로에서 가로로 바뀜*/
+        }
+
+        #navi>li{
+            border: 1px solid rgb(208, 214, 135); 
+            float: left;
+            width: 15%;
+            height: 100%;
+            text-align: center;
+            
+            
+        }
+
+        /*a block으로 해줘야 list까지참*/
+        #navi a{
+            text-decoration: none;
+            color: darkslateblue;
+            font-size: 15px;
+            font-weight: 800;
+            width: 100%;
+            height: 100%;
+            display: block;
+            line-height: 35px; /*전체영역에서는 네비바가 50px이고 우리는 40px 전체잡음 */
+            /*보통은 블럭요소의 세로길이만큼 부여하면 
+            가운데로 이동하지만 지금은 %로 절대적인 크기를
+            알수없으니 임의로 35지정 
+            */
+        }
+
+        #navi a:hover{
+            color: darkgray;
+            font-size: 16px;
+        }
+
+        /*html들 딱 중간에*/
+              /*ul도 기본패딩있음*/
+              /*HTML CSS ....이것들*/
+        #navi>li>ul{
+            list-style-type: none;
+            padding: 0px; /*기본 설정 패딩 없애기 이걸 계속 못해*/
+            display: none;
+        }
+
+        #navi>li>ul a{
+            font-size: 12px;
+        }
+        #navi>li>ul a:hover{
+            font-size: 13px;
+        }
+
+        /*li a ul인데  ->   li>ul로 연결 */
+
+        /*첫번쨰 겉에 JAVA ORACLE, FRONTEND 오른쪽 UL이 나온다.*/
+        #navi>li>a:hover+ul{
+            display:block;
+        }
+
+        /*안에 a같은데?*/
+        /*HTML CSS*/
+        #navi>li>ul:hover{
+            display:block;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <!--ul -> li -> -->
+    <div id="menubar">
+        <ul id="navi">
+            <li><a href="">Java</a></li>
+            <li><a href="">Oracle</a></li>
+            <li><a href="">Frontend</a>
+                <ul>
+                    <li><a href="">HTML</a></li>
+                    <li><a href="">CSS</a></li>
+                    <li><a href="">JavaScript</a></li>
+                    <li><a href="">jQuery</a></li>
+                </ul>
+            </li>
+            <li><a href="">Server</a>
+                <!-- ul>(li>a)*4 -->
+                <ul>
+                    <li><a href="">JDBC</a></li>
+                    <li><a href="">Servlet</a></li>
+                    <li><a href="">JSP</a></li>
+                    <li><a href="">Ajax</a></li>
+                </ul>
+            </li>
+            <li><a href="">Framework</a>
+                <ul>
+                    <li><a href="">Mybatis</a></li>
+                    <li><a href="">Spring</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        div{
+            /* border: 1px solid red; */
+            box-sizing: border-box;
+        }
+        #menubar{
+            /*임시 영역 설정*/
+            width: 1000px;
+            height: 40px;
+        }
+        
+       #navi{
+        border: 1px solid purple;
+        list-style-type: none;
+        margin:0px;
+        padding: 0px;
+        height: 100%;
+        
+       }
+
+       #navi>li{
+        margin: 10px;
+        float: left;
+        margin: 10px;
+        width: 15%;
+        height:100%;
+        text-align:center;
+
+       }
+       
+       /*띄어쓰기...  a 후손 */
+       #navi a{
+        text-decoration: none;
+        height: 100%;
+        width: 100%;
+        display:block;
+        font-size: 15px;
+        line-height: 35px;
+
+        
+       }
+
+       #navi a:hover{
+        color:darkgray;
+        size: 16px;
+       }
+
+       #navi>ul{
+        padding: 0px;
+       }
+
+       /*ul은 한 뭉텅이*/
+       #navi>li>a:hover+ul{
+        display: block;
+       }
+
+       #navi>li>ul{
+        list-style-type: none;
+        padding: 0px; /*기본 설정 패딩 없애기 이걸 계속 못해*/
+        display: none;
+       }
+
+       #navi>li>ul:hover{
+        display:block;
+       }
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <!--ul -> li -> -->
+    <div id="menubar">
+        <ul id="navi">
+            <li><a href="">Java</a></li>
+            <li><a href="">Oracle</a></li>
+            <li><a href="">Frontend</a>
+                <ul>
+                    <li><a href="">HTML</a></li>
+                    <li><a href="">CSS</a></li>
+                    <li><a href="">JavaScript</a></li>
+                    <li><a href="">jQuery</a></li>
+                </ul>
+            </li>
+            <li><a href="">Server</a>
+                <!-- ul>(li>a)*4 -->
+                <ul>
+                    <li><a href="">JDBC</a></li>
+                    <li><a href="">Servlet</a></li>
+                    <li><a href="">JSP</a></li>
+                    <li><a href="">Ajax</a></li>
+                </ul>
+            </li>
+            <li><a href="">Framework</a>
+                <ul>
+                    <li><a href="">Mybatis</a></li>
+                    <li><a href="">Spring</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

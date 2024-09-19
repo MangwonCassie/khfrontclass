@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .wrap{
+            height:800px;
+            width: 1000px;
+            margin: auto;
+        }
+
+        .wrap>div{
+            width: 100%;
+        }
+
+        #header, #footer{
+            height: 20%;
+        }
+
+        #menubar{
+            height: 5%;
+        }
+
+        #content{
+            height: 55%;
+        }
+
+        #header>div, #content>div{
+            height:100%;
+            float: left;
+            
+        }
+
+        /*여기서 쪼르르르만 붙으니까 영역마다 width %로 설정*/
+
+        #header_1, #content_1{
+            width: 20%;
+        }
+
+        #header_2, #content_2{
+            width: 55%;
+        }
+
+        #header_3, #content_3{
+            width: 25%;
+        }
+
+
+        /*푸터영역*/,
+
+ 
+        div{
+            border: 1px solid black; /*다하고 주석하기*/
+            box-sizing: border-box;
+        }
+
+        #footer{
+            width: 1000px;
+            height: 150px;
+        }
+
+        #footer>div{
+            width: 100%;
+        }
+
+        #footer_1{
+            height: 20%;
+        }
+
+        #footer_2{
+            height: 80%;
+        }
+
+        #footer_2>p{
+            border: 1px solid red;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 12px;
+            margin: 0; /*p태그에 기본적으로 마진있어 0으로 만들어주기*/
+        }
+
+        #p1{
+            height: 80%;
+            padding: 5% 15px;
+        }
+
+        #p1{
+            height: 80%;
+            padding: 5px 15px;
+        }
+
+        #p2{
+            height: 20%;
+            text-align:center;
+        }
+
+        #footer_1>a{
+            text-decoration: none;
+            color:black;
+            font-weight: 600;
+            margin: 15px;
+            vertical-align: middle; /*수직구조에서 가운데정렬*/
+            
+
+        }
+
+        /*로그인폼영역*/
+        #login_form{
+            width: 100%;
+            height: 30%;/*height가 나중에 30%만 잡혀야해서*/
+        }
+        
+
+        #login_form>*{
+            width: 100%;
+        }
+
+        /*먼저 div요소 80% 왜 이 부분이 80% 일단 외워 그냥..*/
+        #login_form_input{
+            height: 80%;
+        }
+
+        #login_form_etc{
+            height: 20%;
+            text-align: center;
+        }
+
+        #login_form_etc>a{
+            text-decoration: none;
+            color: black;
+            margin: 10px;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+
+        /*각자영역에서 높이 100%*/
+        #login_form_input>*{
+            height: 100%;
+            float: left;
+        }
+
+        #login_input{
+            width: 70%;
+        }
+        #login_btn{
+            width: 30%;
+        }
+
+            #login_input>input{
+            width: 100%;
+            height: 50%;
+            box-sizing: border-box;
+        }
+
+        #login_btn>button{
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /*!!검색창!!*/
+        /*이건 가져와야함*/
+        #header_2{
+          
+            position: relative; /*검색창을 가운데로 옮기기 위한 기준잡기*/
+        }
+   
+        
+        #search_form{
+            width: 80%;
+            height: 20%;
+            margin: auto;
+            position: absolute;
+            right: 0px;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+        }
+
+        #search_form>div{
+            height: 100%;
+            float: left;
+        }
+
+        #search_text{
+            width: 80%;
+        }
+        #search_btn{
+            width: 20%;
+        }
+
+        /*input 후손들 다 선택*/
+        #search_form input{
+            width: 100%;
+            height: 100%;
+        }
+        
+        /*네비바영역*/
+        #navi{
+            /* border: 1px solid purple; */
+            list-style-type: none;
+            /*ul 요소에 기본적으로 위아래 margin 존재
+              padding도 존재하기 때문에 0으로 바꿔서 왼쪽에 달라붙게하기
+            */
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+        }
+
+        #navi>li{
+            /* border: 1px solid rgb(208, 214, 135); */
+            float: left;
+            width: 15%;
+            height: 100%;
+            text-align: center;
+        }  
+
+        #navi a{
+            /* border: 1px solid salmon; */
+            text-decoration: none;
+            color: darkslateblue;
+            font-size: 15px;
+            font-weight: 800;
+            /*a태그는 인라인 요소이기 때문에 content영역만 잡힌다 
+                영역 키워주기 
+            */
+            width: 100%;
+            height: 100%;
+            display: block;
+            line-height: 35px;
+            /*보통은 블럭요소의 세로길이만큼 부여하면 
+            가운데로 이동하지만 지금은 %로 절대적인 크기를
+            알수없으니 임의로 35지정 
+            */
+        }
+        /*hover걸면 약간커지게*/
+        #navi a:hover{
+            color: darkgray;
+            font-size: 16px;
+        }
+
+        /*목록에 세부 목록이 평소에는 보이지 않다가 마우스를 올리면 보여지는 효과 넣기*/
+        #navi>li>ul{
+            list-style-type: none;
+            padding: 0px; /*기본 설정 패딩 없애기 그래야 메뉴바 중간에 옴*/
+            display: none; /*안보이게 하기  1단계 */
+        }
+
+        #navi>li>ul a{
+            font-size: 12px;
+        }
+        #navi>li>ul a:hover{
+            font-size: 13px;
+        }
+
+        /*a태그에 마우스가 올라갔을때 옆에있는 ul*/
+        #navi>li>a:hover+ul {
+            /*평소에는 안보이다가 마우스 올리면 보이게 하기 2단계*/
+            display: block;
+        }
+
+        /*서브 메뉴에도 마우스가 올라가면 보여지게 설정하기 */
+        #navi>li>ul:hover{  
+            /*평소에는 안보이다가 마우스 올리면 보이게 하기 3단계*/
+            display: block;
+        }
+
+      
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <div id="header">
+            <div id="header_1"></div>
+            <div id="header_2">
+                <form action="search.do" id="search_form">
+                    <div id="search_text">
+                        <input type="search" name="keyword">
+                    </div>
+                    <div id="search_btn">
+                        <input type="button" value="검색">
+                    </div>
+                </form>
+
+
+            </div>
+            <div id="header_3"></div>
+        </div>
+
+        <div id="menubar">
+            <ul id="navi">
+                <li><a href="">Java</a></li>
+                <li><a href="">Oracle</a></li>
+                <li><a href="">Frontend</a>
+                    <ul>
+                        <li><a href="">HTML</a></li>
+                        <li><a href="">CSS</a></li>
+                        <li><a href="">JavaScript</a></li>
+                        <li><a href="">jQuery</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Server</a>
+                    <!-- ul>(li>a)*4 -->
+                    <ul>
+                        <li><a href="">JDBC</a></li>
+                        <li><a href="">Servlet</a></li>
+                        <li><a href="">JSP</a></li>
+                        <li><a href="">Ajax</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Framework</a>
+                    <ul>
+                        <li><a href="">Mybatis</a></li>
+                        <li><a href="">Spring</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+
+        </div>
+
+        <div id="content">
+
+            <div id="content_1"></div>
+            <div id="content_2"></div>
+            <div id="content_3">
+                <div id="login_form">
+                    <!--입력을 받는 input요소들 위치할 form 영역-->
+                    <form action="test.do" id="login_form_input"><!--form에 아이디부여-->
+                        <div id="login_input">
+                            <input type="text" name="userId" placeholder="아이디 입력" required><br>
+                            <input type="password" name="userPwd" placeholder="비밀번호 입력" required>
+                        </div>
+                        <div id="login_btn">
+                            <button type="submit">로그인</button>
+                        </div>
+                    </form>
+                    
+                    <!--회원가입/아이디 비밀번호 찾기 영역-->
+                    <div id="login_form_etc">
+                        <a href="">회원가입</a> 
+                        <a href="">ID/PWD 찾기</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div id="footer">
+
+      
+
+                <div id="footer_1">
+        
+                    <a href="">이용약관</a>
+                    <a href="">개인정보취급방침</a>
+                    <a href="">인재채용</a>
+                    <a href="">고객센터</a>
+        
+                </div>
+        
+                    <div id="footer_2">
+        
+                        <p id="p1">,
+                            강남지원 1관 : 서울특별시 강남구 테헤란로14길 6 남도빌딩 2F, 3F, 4F, 5F, 6F
+                            강남지원 2관 : 서울특별시 강남구 테헤란로10길 9 그랑프리 빌딩 4F, 5F, 7F
+                            강남지원 3관 : 서울특별시 강남구 테헤란로 130 호산빌딩 5F, 6F
+                            종로지원 : 서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F, 3F
+                            당산지원 : 서울특별시 영등포구 선유동2로 57 이레빌딩(구관) 19F, 20F
+        
+                        </p>
+                        <p id="p2">
+                            Copyright © 1998-2023 KH Information Educational Institute All Right Reserved
+        
+                        </p>
+                    </div>
+        
+              
+        
+        
+            </div>
+
+
+
+    </div>
+    
+</body>
+</html>

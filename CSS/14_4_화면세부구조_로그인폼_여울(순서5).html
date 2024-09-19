@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,form{
+            box-sizing: border-box;
+        }
+        #content_3{
+            width: 300px;
+            height: 600px;
+        }
+
+        /*전체의미하는데 가라로 content3 또 기준잡는다고 씀 */
+        #login_form{
+            width: 100%;
+            height: 30%;/* height: 600px의 30% -> 180px;*/
+        }
+        /*login_form의 자손요소들 아이디입력, 비밀번호입력, 로그인*/
+        #login_form>*{
+            width: 100%;
+        }
+
+        /*두개합쳐서 그냥 100% 될 수 있게끔 */
+        #login_form_input{
+            height: 80%;/*form영역만 80%가져간다이말임 */
+        }
+
+        /*etc 전체감싸는 거 */
+        #login_form_etc{
+            height: 20%;
+            text-align: center;
+        }
+        #login_form_etc>a{
+            text-decoration: none;
+            color: black;
+            margin: 10px;
+            font-size: 12px;
+            vertical-align: middle;
+        }
+
+        #login_form_input>*{
+            height: 100%;
+            float: left;
+        }
+        /*합쳐서 100%될 수 있게끔 */
+        #login_input{
+            width: 70%;
+        }
+        #login_btn{
+            width: 30%;
+        }
+
+        #login_input>input{
+            width: 100%;
+            height: 50%;
+            box-sizing: border-box;
+        }
+        #login_btn>button{
+            width: 100%;
+            height: 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="content_3"><!--임의로 기준잡을 영역-->
+        <div id="login_form">
+            <!--입력을 받는 "input요소들 위치할 form 영역"-->
+            <form action="test.do" id="login_form_input">
+                <div id="login_input">
+                    <input type="text" name="userId" placeholder="아이디 입력" required><br>
+                    <input type="password" name="userPwd" placeholder="비밀번호 입력" required>
+                </div>
+                <div id="login_btn">
+                    <button type="submit">로그인</button>
+                </div>
+            </form>
+            
+            <!--회원가입/아이디 비밀번호 찾기 영역-->
+            <div id="login_form_etc">
+                <a href="">회원가입</a> 
+                <a href="">ID/PWD 찾기</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

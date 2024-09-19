@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제</title>
+</head>
+<body> 
+    <fieldset>
+        <legend>문제1</legend>
+        <h3>input 태그에 값을 입력하고 버튼을 클릭하였을 때, 값이 숫자인지 아닌지 출력해 주세요.</h3>
+
+        <h5>(값이 숫자라면 : "숫자입니다." 숫자가 아니면 "숫자가 아닙니다." 를 alert으로 출력)</h5>
+
+        <input type="text" id="number"><button onclick="ex01();">판별</button>
+    </fieldset>
+    
+    <script>
+        function ex01(){
+            //데이터가 입력되는 input의 value 꺼내오기
+            var inputVal = document.getElementById("number").value;
+
+            if(isNaN(inputVal)){
+                alert("숫자가 아닙니다.");
+            }else{
+                alert("숫자입니다.");
+            }
+
+            console.log(isNaN(inputVal));
+        }
+    </script>
+
+    <fieldset>
+        <legend>문제 2</legend>
+        <h3>input 태그에 이름을 입력하고 버튼을 클릭하였을 때,해당 이름이 존재하는지 여부를 출력해주세요.</h3>
+        <h5>이름이 있으면 : "이름이 있습니다." 없으면 "이름이 없습니다" 를 alert으로 출력</h5>
+
+        <input type="text" id="nameInput"> <button onclick="ex02();">판별</button>
+        <button onclick="ex02_1();">판별2</button>
+        <div id="names">홍길동 이순신 김선달 유재석 강호동 이병헌</div>
+
+
+        <script>
+            function ex02(){
+                var nameInput = document.querySelector("#nameInput").value;
+                var names = document.querySelector("#names").innerText;
+
+                //indexOf로 찾아보기 있으면 인덱스반환 없으면 -1반환 
+                
+                if(names.indexOf(nameInput)== -1){ //없다
+                    alert("이름이 없습니다.");
+                }else{//있다
+                    alert("이름이 있습니다.");
+                }
+
+            }
+
+            function ex02_1(){
+                //요소를 하나씩 배열에 담아 요소 확인하기 
+                //split 이용하기 (텍스트 구분자를 통해 배열로 만들기)
+
+                var inputVal = document.getElementById("nameInput").value;
+                var names = document.getElementById("names").innerText;
+
+                var nameArr = names.split(" "); //공백을 구분자로하여 요소들 잘라서 배열만들기
+
+                //console.log(nameArr);
+                var count = 0;
+                for(var i=0; i<nameArr.length; i++){
+                    if(nameArr[i] == inputVal){
+                        count++;
+                    }
+                }
+
+                if(count>0){
+                    alert("이름이 있습니다.");
+                }else{
+                    alert("이름이 없습니다.");
+                }
+            }
+        </script>
+    </fieldset>
+
+    <fieldset>
+        <legend>문제3</legend>
+        <h3>전체선택버튼을 클릭하면 체크항목을 모두 체크하거나 모두 해제해 주세요.</h3>
+        <br>
+        <input type="checkbox" name="all" id="all" onclick="chkAll();"><label for="all">전체선택</label>
+        <input type="checkbox" name="sub" id="java"><label for="java">Java</label>
+        <input type="checkbox" name="sub" id="db"><label for="db">DataBase</label>
+        <input type="checkbox" name="sub" id="web"><label for="web">Web</label>
+    </fieldset>
+
+    <script>
+        function chkAll(){
+            var all = document.getElementById("all"); //전체선택 버튼 요소 가져오기
+            var isChk = all.checked; //전체선택 버튼 요소의 checked 속성값 가져오기
+            var subs = document.getElementsByName("sub");
+
+            
+            console.log(subs);
+
+            if(isChk){ //전체선택이 true면(체크되었다면)
+                for(var i=0; i<subs.length; i++){
+                    subs[i].checked = true;
+                }
+            }else{
+                for(var i=0; i<subs.length;i++){
+                    subs[i].checked = false;
+                }
+            }
+            
+
+        }
+    </script>
+
+    <fieldset>
+        <legend>문제4</legend>
+        <h3>1~20사이의 랜덤한 숫자를 생성해서 input태그 안에 입력해주세요.</h3>
+
+        랜덤: <input type="text" id="ran"> <button onclick="ranNum();">생성</button>
+
+    </fieldset>
+
+    <script>
+        function ranNum(){
+            var input = document.querySelector("#ran"); //input요소객체 가져오기
+
+            //1~20사이의 숫자 뽑기
+
+            var ranNum = Math.floor(Math.random() *20 +1);
+
+            console.log(ranNum);
+
+            input.value = ranNum;
+        }
+
+    </script>
+
+    <fieldset>
+        <legend>문제5</legend>
+        <h3>input 태그에 입력된 값으로 table을 생성해주세요.</h3>
+        <br>
+        이름 : <input type="text" name="" id="userName"> <br>
+        나이 : <input type="text" name="" id="age"> <br>
+        성별 : <input type="text" name="" id="gender"> <br>
+        <button onclick="ex05();">생성</button>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>성별</th>
+                </tr>
+            </thead>
+            <tbody id="tb">
+                <tr>
+                    <td>사용자에게 입력받은 이름</td>
+                    <td>사용자에게 입력받은 나이</td>
+                    <td>사용자에게 입력받은 성별</td>
+                </tr>
+                <tr>
+                    <td>nameInput</td>
+                    <td>ageInput</td>
+                    <td>genderInput</td>
+                </tr>
+        </tbody>
+
+        </table>
+    </fieldset>
+
+    <script>
+        function ex05(){
+            //input요소 value값 가져오기
+            var userName = document.querySelector("#userName").value;
+            var age = document.getElementById("age").value;
+            var gender = document.getElementById("gender").value;
+
+            //tbody요소객체 가져오기
+
+            var tbody = document.getElementsByTagName("tbody")[0];
+
+            //tbody 안에  사용자에게 입력받은 값을 td로 갖는 tr 추가하기
+
+            tbody.innerHTML+="<tr>"
+                +"<td>"+userName+"</td>"
+                +"<td>"+age+"</td>"
+                +"<td>"+gender+"</td>"
+                +"</tr>";
+            
+            //추가 후 빈칸으로 만들기
+            document.querySelector("#userName").value = "";
+            document.getElementById("age").value ="";
+            document.getElementById("gender").value="";
+        }
+    </script>
+
+    <fieldset>
+        <legend>문제6</legend>
+        <h3>원하는 구구단을 입력하고, alert으로 해당 단을 출력하세요.</h3>
+        <h5>(입력 예: 3 -> 3*1 = 3 3*2 = 6...)</h5>
+        <input type="text" id="gugudan"> <button onclick="ex06();">출력</button>
+    </fieldset>
+
+    <script>
+        function ex06(){
+            var gugudan = document.getElementById("gugudan").value;
+
+            var result ="";
+
+            for(var i=1; i<=9; i++){
+                result+=gugudan+"X"+i+" = "+gugudan*i+"\n";
+            }
+
+            alert(result);
+
+            document.getElementById("gugudan").value="";
+
+        }
+
+    </script>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

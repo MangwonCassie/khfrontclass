@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시각적인 효과 메소드3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        div{
+            background-color: bisque;
+            width:500px;
+            height:30px;
+            text-align:center;
+            line-height: 30px;
+            border-radius: 10px;
+            border: 2px solid burlywood;
+            cursor: pointer;
+        }
+
+        p{
+            border: 1px solid lightgoldenrodyellow;
+            background-color: cornsilk;
+            width: 300px;
+            height: 50px;
+            margin-top: 10px; /*위에 margin 공백 조금 주기*/
+            border-radius: 5px;
+            box-sizing: border-box;
+            display:none; /*처음엔 보여지지않게*/
+        }
+    </style>
+
+</head>
+<body>
+    <h3>slideDown()과 slideUp()</h3>
+
+
+    <div>Q. 그지같은거 보내놓고 뭐합니까! </div>
+    <p>불편드려 죄송합니다. 금일 다른 상품으로 다시 발생하겠습니다.</p>
+
+    <div>Q. 딸기가 달아요? 신가요?</div>
+    <p>저희 딸기는 엄청 달아요</p>
+
+    <div>Q.주문한지 2년 지났는데 아직 배송안왔어요. 이제 재배하나요?</div>
+    <p>금일 재배 시작했습니다. 올해안에 발송하겠습니다.</p>
+
+
+    <script>
+        $(function(){
+            $("div").click(function(){
+                //#(this).next : 해당요소 뒤에 있는 요소는  p
+                //이건 jquery 변수야 변수앞에도 $표시
+                var $p = $(this).next(); //jquery 변수 앞에 $표시
+           
+                //none도 쌍따옴표 속성이니까
+                //display가 none인 요소를 보여줄 수 있게 작업하기
+                if($p.css("display") == "none"){
+                    //div뒤에 있는 요소의 display 속성 값이 none이면
+                    $(this).siblings("p").slideUp(1000); // 기존에 열려있던 p태그 닫기
+                    $p.slideDown(1000); //해당 p태그 보여지기
+                } else{
+                    $p.slideUp(1000);
+                }
+           
+            })
+        })
+    </script>
+</body>
+</html>

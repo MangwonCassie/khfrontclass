@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입폼</title>
+</head>
+<body>
+    <h1>정규 표현식을 이용한 회원 가입 폼</h1>
+
+    <fieldset>
+        <form action="test.do">
+            <label for="userId">아이디 : </label>
+            <input type="text" name="userId" id="userId" required> <br>
+            <span>첫글자는 반드시 영문자로, 그리고 영문자,숫자를 포함하여 총4~12자로 입력하시오.</span> <br>
+            <br><br>
+            <label for="userPwd">비밀번호 : </label>
+            <input type="password" name="userPwd" id="userPwd" required> <br>
+            <span>영문자,숫자,특수문자(!@#$%^&*)로 총 8~15자로 입력하시오.</span> <br>
+            <br><br>
+            <label for="chkPwd">비밀번호확인 : </label>
+            <input type="password" id="chkPwd" required> <br>
+            <span>위의 비밀번호와 일치하게 입력하시오.</span>
+            <br><br>
+            <label for="userName">이름 : </label>
+            <input type="text" name="userName" id="userName" required> <br>
+            <span>한글로만 이루어져야하며 2글자 이상으로 입력하시오.</span> <br>
+            <br><br>
+            <label for="email">이메일 : </label>
+            <input type="email" name="email" id="email" required> <br>
+            <span>이메일 형식에 맞춰서 입력하시오</span> <br>
+            <br><br>
+            <label for="hobby">취미 : </label>
+            <input type="text" name="hobby" id="hobby" required placeholder="게임,축구,영화보기"> <br>
+            <br><br>
+            <label for="address">거주지 : </label>
+            <select name="address" id="address">
+                <option value="seoul">서울</option>
+                <option value="gyeunggi">경기</option>
+                <option value="incheon">인천</option>
+            </select>
+            <br><br>
+            <input type="submit" value="회원가입" onclick="return validate();"> 
+            <input type="reset" value="취소">
+        </form>
+    </fieldset> 
+
+
+    </fieldset>
+ 
+
+    <script>
+        function validate(){
+            var inputId = document.getElementById("userId");
+            var inputPwd = document.getElementById("userPwd");
+            var inputCp = document.getElementById("chkPwd");
+            var inputName = document.getElementById("userName");
+
+
+            //1)아이디 검사
+            //첫글자는 반드시 영문자로, 그리고 영문자,숫자를 포함하여 총4~12자로 입력하시오.
+
+            var regExp = /^[a-zA-Z][a-zA-Z0-9]{3,11}$/;
+
+            if(!regExp.test(inputId.value)){ //유효값이 아닐경우
+                alert("아이디 형식이 올바르지 않습니다.");
+                inputId.select();
+                //해당 요소에 focus주는 select함수
+                return false;
+            }
+
+            //2)비밀번호 검사
+            //영문자,숫자,특수문자(!@#$%^&*)로 총 8~15자로 입력하시오.
+            regExp =  /^[a-zA-Z0-9!@#$%^&*]{8,15}$/;
+            if(!regExp.test(inputPwd.value)){
+                alert("비밀번호 형식이 올바르지 않습니다.");
+                inputPwd.focus();
+                return false;
+            }
+
+            //3)비밀번호와 비밀번호 확인 일치여부 
+            if(inputPwd.value != inputCp.value){
+                alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+                inputCp.focus();
+                return false;
+            }   
+
+            //4)이름 검사
+            //한글 2글자 이상
+            regExp = /^[가-힣]{2,}$/; //2글자 이상 {범위에서 앞쪽만 작성하면 그 이상}
+
+            if(!regExp.test(inputName.value)){
+                
+                alert("이름 형식이 올바르지 않습니다.");
+                inputName.focus();
+                return false;
+            }
+
+
+
+        }
+    </script>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
